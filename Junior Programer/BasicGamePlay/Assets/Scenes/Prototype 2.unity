@@ -128,7 +128,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 100046, guid: 0e1316a3e46fdb349b6ff648610a1d71, type: 3}
   m_PrefabInstance: {fileID: 417366643}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &23059612
+--- !u!114 &23059610
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,12 +137,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 23059609}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 598ccab02a4f5a64cb5a7bc236782d70, type: 3}
+  m_Script: {fileID: 11500000, guid: 38e917c52987daa41af6a0305d9813c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  food: {fileID: 5108278947936666598, guid: e4fabd2576b041244905800569b3d113, type: 3}
-  moveSpeed: 15
-  xRange: 15
+  projectilePrefab: {fileID: 5108278947936666598, guid: e4fabd2576b041244905800569b3d113, type: 3}
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,6 +558,7 @@ GameObject:
   m_Component:
   - component: {fileID: 741130287}
   - component: {fileID: 741130288}
+  - component: {fileID: 741130289}
   m_Layer: 0
   m_Name: Spawn Manager
   m_TagString: Untagged
@@ -599,6 +598,21 @@ MonoBehaviour:
   - {fileID: 140746, guid: 02eca77e7e6a2ec41ba4c68f20e26098, type: 3}
   spawnRangeX: 20
   spawnPosZ: 20
+--- !u!114 &741130289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741130286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45c0e1f24e2ce4a5b9bf1f3a7499cd45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObjects: []
+  objectToPool: {fileID: 5108278947936666598, guid: e4fabd2576b041244905800569b3d113, type: 3}
+  amountToPool: 20
 --- !u!1 &992285705
 GameObject:
   m_ObjectHideFlags: 0

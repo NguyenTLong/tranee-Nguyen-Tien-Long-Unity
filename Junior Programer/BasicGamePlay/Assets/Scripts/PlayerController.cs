@@ -1,53 +1,49 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private GameObject obj;
-
-
-
     private float horizontalInput;
+    private float speed = 20.0f;
+    private float xRange = 20;
+    public GameObject projectilePrefab;
 
-    public GameObject food;
-    public float moveSpeed = 15;
-    public float xRange = 15;
-
-    private Vector3 foodOffset = new Vector3(0,2,1);
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        obj = gameObject;
-    }
 
     // Update is called once per frame
     void Update()
     {
-        // get input value
+        // Check for left and right bounds
+        if (transform.position.x < -xRange)
+        {
+            transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
+        }
+
+        if (transform.position.x > xRange)
+        {
+            transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
+        }
+
+        // Player movement left to right
         horizontalInput = Input.GetAxis("Horizontal");
+        transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput);
 
-
-        // move the player by input value
-        obj.transform.Translate(Vector3.right * Time.deltaTime * horizontalInput * moveSpeed);
-
-
-        /// check if the obj move out of gameplay limit
-        // for the right part
-        if (obj.transform.position.x > xRange)
-        {
-            obj.transform.position = new Vector3(xRange, obj.transform.position.y,obj.transform.position.z);
-        }
-        // for the left part
-        if (obj.transform.position.x < -xRange)
-        {
-            obj.transform.position = new Vector3(-xRange, obj.transform.position.y, obj.transform.position.z);
-        }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(food, obj.transform.position + foodOffset, Quaternion.identity);
+            // No longer necessary to Instantiate prefabs
+            // Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
+
+            // Get an object object from the pool
+            GameObject pooledProjectile = ObjectPooler.SharedInstance.GetPooledObject();
+            if (pooledProjectile != null)
+            {
+                pooledProjectile.SetActive(true); // activate it
+                pooledProjectile.transform.position = transform.position; // position it at player
+            }
         }
+
+
+
     }
 }
