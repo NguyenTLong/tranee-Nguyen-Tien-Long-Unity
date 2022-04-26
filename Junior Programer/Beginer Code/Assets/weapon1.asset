@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6887453345456800216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 674612dbe4e22e441942361b0bdb7803, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Description: 
+  Modifier:
+    ModifierMode: 1
+    Stats:
+      health: 10
+      strength: 10
+      defense: 10
+      agility: 10
+      elementalProtection: 32000000000000000000000000000000
+      elementalBoosts: 32000000000000000000000000000000
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 640b52b005f736744b3aabdfb8f24abb, type: 3}
+  m_Name: weapon1
+  m_EditorClassIdentifier: 
+  ItemName: 
+  ItemSprite: {fileID: 21300000, guid: 5d0f6ae4987d02846b822915a7301dfa, type: 3}
+  Description: 
+  WorldObjectPrefab: {fileID: -927199367670048503, guid: d34b3591c6e9efe4f8a27a6e8dff55fe,
+    type: 3}
+  Slot: 1
+  MinimumStrength: 10
+  MinimumAgility: 10
+  MinimumDefense: 10
+  EquippedEffects:
+  - {fileID: -6887453345456800216}
+  - {fileID: 2874778858994986687}
+--- !u!114 &2874778858994986687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8daafeb2453cf0439cf5da98c7a90e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Description: 
