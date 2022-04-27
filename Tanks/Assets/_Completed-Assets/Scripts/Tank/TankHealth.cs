@@ -13,7 +13,7 @@ namespace Complete
         public GameObject m_ExplosionPrefab;                // A prefab that will be instantiated in Awake, then used whenever the tank dies.
         
         
-        private AudioSource m_ExplosionAudio;               // The audio source to play when the tank explodes.
+        public AudioSource m_ExplosionAudio;               // The audio source to play when the tank explodes.
         private ParticleSystem m_ExplosionParticles;        // The particle system the will play when the tank is destroyed.
         private float m_CurrentHealth;                      // How much health the tank currently has.
         private bool m_Dead;                                // Has the tank been reduced beyond zero health yet?
@@ -48,6 +48,7 @@ namespace Complete
             // Reduce current health by the amount of damage done.
             m_CurrentHealth -= amount;
 
+
             // Change the UI elements appropriately.
             SetHealthUI ();
 
@@ -80,12 +81,13 @@ namespace Complete
 
             // Play the particle system of the tank exploding.
             m_ExplosionParticles.Play ();
-
-            // Play the tank explosion sound effect.
-            m_ExplosionAudio.Play();
+            Debug.Log("dead");
+/*            // Play the tank explosion sound effect.
+            m_ExplosionAudio.Play();*/
 
             // Turn the tank off.
-            gameObject.SetActive (false);
+            gameObject.SetActive(false);
+            Debug.Log("setActive");
         }
     }
 }
