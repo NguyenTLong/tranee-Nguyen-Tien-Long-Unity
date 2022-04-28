@@ -38,6 +38,9 @@ public class GameFlowManager : MonoBehaviour
 
     public GameState gameState { get; private set; }
 
+    public GhostManager ghostManager;
+    
+
     public bool autoFindKarts = true;
     public ArcadeKart playerKart;
 
@@ -90,6 +93,9 @@ public class GameFlowManager : MonoBehaviour
     }
 
     void StartRace() {
+        ghostManager.recording = true;
+        ghostManager.playing = false;
+
         foreach (ArcadeKart k in karts)
         {
 			k.SetCanMove(true);
@@ -154,6 +160,8 @@ public class GameFlowManager : MonoBehaviour
         Cursor.visible = true;
 
         m_TimeManager.StopRace();
+
+        ghostManager.playing = true;
 
         // Remember that we need to load the appropriate end scene after a delay
         gameState = win ? GameState.Won : GameState.Lost;

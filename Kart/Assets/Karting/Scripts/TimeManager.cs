@@ -12,6 +12,7 @@ public class TimeManager : MonoBehaviour
 
     private bool raceStarted;
 
+
     public static Action<float> OnAdjustTime;
     public static Action<int, bool, GameMode> OnSetTime;
 

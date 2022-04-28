@@ -19,6 +19,8 @@ public class SimpleTrigger : MonoBehaviour
         if (hitRb == triggerBody){
             onTriggerEnter.Invoke();
         }
+
+        
     }
 
 }
