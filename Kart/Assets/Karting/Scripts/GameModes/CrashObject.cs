@@ -35,6 +35,7 @@ public class CrashObject : TargetObject
         Objective.OnUnregisterPickup(this);
 
         TimeManager.OnAdjustTime(TimeGained);
+        Destroy(gameObject, 3);
     }
 
     private void OnTriggerEnter(Collider other)
