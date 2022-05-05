@@ -32,4 +32,6 @@ public abstract class TargetObject : MonoBehaviour
     {
         Objective.OnRegisterPickup?.Invoke(this);
     }
+
+    
 }

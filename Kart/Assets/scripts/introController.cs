@@ -59,17 +59,19 @@ public class introController : MonoBehaviour
 
     private void NextCam()
     {
-        Debug.Log(currentCamIndex);
-        if (currentCamIndex < cams.Length)
+        if (currentCamIndex <= cams.Length)
         {
             cams[currentCamIndex].enabled = false;
             currentCamIndex++;
-            Debug.Log(currentCamIndex);
-            cams[currentCamIndex].enabled = true;
-        }
-        else
-        {
-            EndIntro();
+            try
+            {
+                cams[currentCamIndex].enabled = true;
+            }
+            catch (System.Exception)
+            {
+                EndIntro();
+            }
+            
         }
     }
 
@@ -82,6 +84,9 @@ public class introController : MonoBehaviour
 
     private void EndIntro()
     {
+        Debug.Log("The intro is End !!");
+        GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameFlowManager>().StartGame();
         Destroy(gameObject);
+
     }
 }

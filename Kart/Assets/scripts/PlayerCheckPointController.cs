@@ -6,6 +6,7 @@ public class PlayerCheckPointController : MonoBehaviour
 {
     Vector3 lastCheckPoint;
     Vector3 lastRolation;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +28,7 @@ public class PlayerCheckPointController : MonoBehaviour
         {
             lastCheckPoint = other.gameObject.transform.position;
             lastRolation = other.gameObject.transform.eulerAngles;
+            other.GetComponent<turnOffTIme>().turnOffInAmountOfTime(5);
         }
         if (other.CompareTag("ResetArea"))
         {

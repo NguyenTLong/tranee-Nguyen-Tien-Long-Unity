@@ -51,6 +51,8 @@ public class GameFlowManager : MonoBehaviour
     string m_SceneToLoad;
     float elapsedTimeBeforeEndScene = 0;
 
+    bool isStarted;
+
     void Start()
     {
         if (autoFindKarts)
@@ -64,27 +66,37 @@ public class GameFlowManager : MonoBehaviour
         }
 
         m_ObjectiveManager = FindObjectOfType<ObjectiveManager>();
-		DebugUtility.HandleErrorIfNullFindObject<ObjectiveManager, GameFlowManager>(m_ObjectiveManager, this);
+        DebugUtility.HandleErrorIfNullFindObject<ObjectiveManager, GameFlowManager>(m_ObjectiveManager, this);
 
         m_TimeManager = FindObjectOfType<TimeManager>();
         DebugUtility.HandleErrorIfNullFindObject<TimeManager, GameFlowManager>(m_TimeManager, this);
 
         AudioUtility.SetMasterVolume(1);
 
+        m_TimeManager.StopRace();
+
+        foreach (ArcadeKart k in karts)
+        {
+            k.SetCanMove(false);
+        }
+
+
+
         winDisplayMessage.gameObject.SetActive(false);
         loseDisplayMessage.gameObject.SetActive(false);
 
-        m_TimeManager.StopRace();
-        foreach (ArcadeKart k in karts)
-        {
-			k.SetCanMove(false);
-        }
+        isStarted = false;
+    }
 
+    public void StartGame()
+    {
         //run race countdown animation
         ShowRaceCountdownAnimation();
         StartCoroutine(ShowObjectivesRoutine());
 
         StartCoroutine(CountdownThenStartRaceRoutine());
+
+        isStarted = true;
     }
 
     IEnumerator CountdownThenStartRaceRoutine() {
@@ -121,35 +133,37 @@ public class GameFlowManager : MonoBehaviour
 
     void Update()
     {
-
-        if (gameState != GameState.Play)
+        if (isStarted)
         {
-            elapsedTimeBeforeEndScene += Time.deltaTime;
-            if(elapsedTimeBeforeEndScene >= endSceneLoadDelay)
+            if (gameState != GameState.Play)
             {
-
-                float timeRatio = 1 - (m_TimeLoadEndGameScene - Time.time) / endSceneLoadDelay;
-                endGameFadeCanvasGroup.alpha = timeRatio;
-
-                float volumeRatio = Mathf.Abs(timeRatio);
-                float volume = Mathf.Clamp(1 - volumeRatio, 0, 1);
-                AudioUtility.SetMasterVolume(volume);
-
-                // See if it's time to load the end scene (after the delay)
-                if (Time.time >= m_TimeLoadEndGameScene)
+                elapsedTimeBeforeEndScene += Time.deltaTime;
+                if (elapsedTimeBeforeEndScene >= endSceneLoadDelay)
                 {
-                    SceneManager.LoadScene(m_SceneToLoad);
-                    gameState = GameState.Play;
+
+                    float timeRatio = 1 - (m_TimeLoadEndGameScene - Time.time) / endSceneLoadDelay;
+                    endGameFadeCanvasGroup.alpha = timeRatio;
+
+                    float volumeRatio = Mathf.Abs(timeRatio);
+                    float volume = Mathf.Clamp(1 - volumeRatio, 0, 1);
+                    AudioUtility.SetMasterVolume(volume);
+
+                    // See if it's time to load the end scene (after the delay)
+                    if (Time.time >= m_TimeLoadEndGameScene)
+                    {
+                        SceneManager.LoadScene(m_SceneToLoad);
+                        gameState = GameState.Play;
+                    }
                 }
             }
-        }
-        else
-        {
-            if (m_ObjectiveManager.AreAllObjectivesCompleted())
-                EndGame(true);
+            else
+            {
+                if (m_ObjectiveManager.AreAllObjectivesCompleted())
+                    EndGame(true);
 
-            if (m_TimeManager.IsFinite && m_TimeManager.IsOver)
-                EndGame(false);
+                if (m_TimeManager.IsFinite && m_TimeManager.IsOver)
+                    EndGame(false);
+            }
         }
     }
 

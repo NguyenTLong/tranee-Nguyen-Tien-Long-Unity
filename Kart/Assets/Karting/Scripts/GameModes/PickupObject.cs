@@ -37,7 +37,6 @@ public class PickupObject : TargetObject
 
         TimeManager.OnAdjustTime(TimeGained);
 
-        Destroy(gameObject, collectDuration);
     }
     
     void OnTriggerEnter(Collider other)
@@ -47,4 +46,6 @@ public class PickupObject : TargetObject
             OnCollect();
         }
     }
+
+    
 }
