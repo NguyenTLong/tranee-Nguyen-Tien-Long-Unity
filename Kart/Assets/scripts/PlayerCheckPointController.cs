@@ -7,16 +7,22 @@ public class PlayerCheckPointController : MonoBehaviour
     Vector3 lastCheckPoint;
     Vector3 lastRolation;
 
+    public FadeInFadeOut fade;
+
+    [SerializeField]
+    private bool useRToRespawn;
+
+    private bool isRespawning = false;
+
     // Start is called before the first frame update
     void Start()
     {
         lastCheckPoint = gameObject.transform.position;
-        
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) && useRToRespawn)
         {
             StartCoroutine(setDistance(0));
         }
@@ -30,8 +36,10 @@ public class PlayerCheckPointController : MonoBehaviour
             lastRolation = other.gameObject.transform.eulerAngles;
             other.GetComponent<turnOffTIme>().turnOffInAmountOfTime(5);
         }
-        if (other.CompareTag("ResetArea"))
+        if (other.CompareTag("ResetArea") && !isRespawning)
         {
+            fade.fadeIn = true;
+            isRespawning = false;
             StartCoroutine(setDistance(2));
         }
     }
@@ -39,9 +47,13 @@ public class PlayerCheckPointController : MonoBehaviour
     IEnumerator setDistance(int time)
     {
         yield return new WaitForSeconds(time);
+        fade.panel.alpha = 1;
+        fade.fadeOut = true;
         gameObject.transform.position = lastCheckPoint;
         gameObject.transform.eulerAngles = lastRolation;
         gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        
+
+
+        isRespawning = true;
     }
 }

@@ -5,19 +5,15 @@ using UnityEngine;
 public class FadeInFadeOut : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField]
-    private bool fadeIn;
-    [SerializeField]
-    private int fadeInTime;
+    
+    public bool fadeIn;
 
-    [SerializeField]
-    private bool fadeOut;
+    public bool fadeOut;
 
     [SerializeField]
     private bool destroyOnFadeOut;
 
-    [SerializeField]
-    private CanvasGroup panel;
+    public CanvasGroup panel;
     void Start()
     {
         fadeIn = false;
@@ -39,6 +35,7 @@ public class FadeInFadeOut : MonoBehaviour
 
         if (fadeOut)
         {
+
             panel.alpha -= Time.deltaTime;
             if (panel.alpha <= 0)
             {
