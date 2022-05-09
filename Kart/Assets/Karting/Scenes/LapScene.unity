@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 578755b37767e5a4f924e9037aff42ac,
+  m_LightingDataAsset: {fileID: 112000000, guid: a9e0193058820e94595862d1e4f4fd28,
     type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 2e47bc462aeb1e248b8a150dfea763ca,
     type: 2}
@@ -4353,6 +4353,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba2e046156b11f9469398c27ef1c040b, type: 3}
+--- !u!4 &330731536 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8340797653080888291, guid: ba2e046156b11f9469398c27ef1c040b,
+    type: 3}
+  m_PrefabInstance: {fileID: 330731535}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &335470924
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12702,7 +12708,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LookAt
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 330731536}
     - target: {fileID: 6691645748356329553, guid: 4366ba6a4d5213d4f9fc7bba3e778799,
         type: 3}
       propertyPath: m_RootOrder
@@ -43266,6 +43272,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GhostManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3320518516388441842, guid: bd1261b3063450d45a15da0e3e0d2517,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3320518516388441845, guid: bd1261b3063450d45a15da0e3e0d2517,
         type: 3}
       propertyPath: m_RootOrder
@@ -43330,7 +43341,7 @@ PrefabInstance:
         type: 3}
       propertyPath: kart
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 883484554}
     - target: {fileID: 9151194236723609515, guid: bd1261b3063450d45a15da0e3e0d2517,
         type: 3}
       propertyPath: playing

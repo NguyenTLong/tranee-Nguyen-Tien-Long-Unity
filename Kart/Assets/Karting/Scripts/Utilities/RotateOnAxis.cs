@@ -13,8 +13,6 @@ public class RotateOnAxis : MonoBehaviour
 
         if (rolateRange != 0)
         {
-            Debug.Log(transform.eulerAngles);
-
             
 
             if (transform.eulerAngles.y > rolateRange && rotationSpeed.y > 0 && transform.eulerAngles.y < 180)

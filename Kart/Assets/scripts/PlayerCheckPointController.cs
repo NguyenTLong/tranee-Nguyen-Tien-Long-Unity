@@ -36,10 +36,12 @@ public class PlayerCheckPointController : MonoBehaviour
             lastRolation = other.gameObject.transform.eulerAngles;
             other.GetComponent<turnOffTIme>().turnOffInAmountOfTime(5);
         }
+
         if (other.CompareTag("ResetArea") && !isRespawning)
         {
+            Debug.Log("into reset area");
             fade.fadeIn = true;
-            isRespawning = false;
+            isRespawning = true;
             StartCoroutine(setDistance(2));
         }
     }
@@ -54,6 +56,6 @@ public class PlayerCheckPointController : MonoBehaviour
         gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
 
 
-        isRespawning = true;
+        isRespawning = false;
     }
 }

@@ -26,6 +26,9 @@ public class ObjectiveReachTargets : Objective
         title = "Collect " +
                 (mustCollectAllPickups ? "all the" : pickupsToCompleteObjective.ToString()) + " " +
                 targetName + "s";
+
+        GameObject[] crashObjs = GameObject.FindGameObjectsWithTag("CrashObject");
+        pickupsToCompleteObjective = crashObjs.Length / 100 * 60;
         
         if (mustCollectAllPickups)
             pickupsToCompleteObjective = NumberOfPickupsTotal;
