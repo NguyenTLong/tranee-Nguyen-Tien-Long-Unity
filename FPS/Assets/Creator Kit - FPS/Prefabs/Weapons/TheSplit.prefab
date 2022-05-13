@@ -206,6 +206,11 @@ PrefabInstance:
       propertyPath: m_FontData.m_HorizontalOverflow
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2277417190578974469, guid: 278b664212d79401587c44e39c1420cb,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2984966042765702060, guid: 278b664212d79401587c44e39c1420cb,
         type: 3}
       propertyPath: m_LocalPosition.z
