@@ -208,7 +208,7 @@ namespace Unity.FPS.Game
             nextShell.transform.SetParent(null);
             nextShell.collisionDetectionMode = CollisionDetectionMode.Continuous;
             nextShell.AddForce(nextShell.transform.up * ShellCasingEjectionForce, ForceMode.Impulse);
-
+            Debug.Log("fire");
             m_PhysicalAmmoPool.Enqueue(nextShell);
         }
 

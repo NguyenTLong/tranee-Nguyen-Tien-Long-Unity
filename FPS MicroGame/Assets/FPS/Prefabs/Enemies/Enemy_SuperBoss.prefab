@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1521007957284072012}
   - component: {fileID: 6004782716808131346}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Hitbox Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1695247527468583575}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: HealthBar Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 2840826130131431838}
   - component: {fileID: 3665813808007819854}
   - component: {fileID: 2304590028169950905}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Hitbox Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,8 @@ GameObject:
   - component: {fileID: 8502097699347725703}
   - component: {fileID: 1345943282138014167}
   - component: {fileID: 3444686158330356048}
-  m_Layer: 0
+  - component: {fileID: 362324541}
+  m_Layer: 13
   m_Name: Enemy_SuperBoss
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -344,6 +345,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &362324541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015434656898269652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7d486e484b45ef4ea1dd5964c697e4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droneRolate: {fileID: 0}
 --- !u!1 &2201913640410082181
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,7 +367,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2096565386399891227}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: GunMuzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -385,7 +399,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8252367100290621305}
   - component: {fileID: 2774235613882044843}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: DetectionModule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -434,7 +448,7 @@ GameObject:
   - component: {fileID: 3253201880669482562}
   - component: {fileID: 2915308685551445665}
   - component: {fileID: 3804506681843464078}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: ImageBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -510,7 +524,7 @@ GameObject:
   - component: {fileID: 118020985647647040}
   - component: {fileID: 6023316067820363403}
   - component: {fileID: 1997026530960526579}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -610,7 +624,7 @@ GameObject:
   - component: {fileID: 8093968053717355754}
   - component: {fileID: 2104015986810675393}
   - component: {fileID: 2231955200838058728}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Weapon_MachineGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -797,7 +811,7 @@ GameObject:
   - component: {fileID: 8078929863353424972}
   - component: {fileID: 8865950977894298914}
   - component: {fileID: 5299349968446827641}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: ImageFill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -870,7 +884,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7332647584199454861}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: GunRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -900,7 +914,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6571005840976436832}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: WeaponRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -938,6 +952,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: VFX_HitSparks (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6523915449405344066, guid: 7593818fba43c7f4c8372299ce5e893f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8492437560918690266, guid: 7593818fba43c7f4c8372299ce5e893f,
         type: 3}
@@ -1069,6 +1088,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: VFX_EnemyMuzzleFlash
       objectReference: {fileID: 0}
+    - target: {fileID: 748781637555137343, guid: 3f5b545b9a1e74c418b061bba5bb9e2c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 7692336672675980230, guid: 3f5b545b9a1e74c418b061bba5bb9e2c,
         type: 3}
       propertyPath: scalingMode
@@ -1081,15 +1105,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f5b545b9a1e74c418b061bba5bb9e2c, type: 3}
---- !u!4 &77575298412261527 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 264520514954343661, guid: 3f5b545b9a1e74c418b061bba5bb9e2c,
-    type: 3}
-  m_PrefabInstance: {fileID: 196010296121033850}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &638502610521960261 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 748781637555137343, guid: 3f5b545b9a1e74c418b061bba5bb9e2c,
+    type: 3}
+  m_PrefabInstance: {fileID: 196010296121033850}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &77575298412261527 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 264520514954343661, guid: 3f5b545b9a1e74c418b061bba5bb9e2c,
     type: 3}
   m_PrefabInstance: {fileID: 196010296121033850}
   m_PrefabAsset: {fileID: 0}
@@ -1104,6 +1128,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: VFX_Alert
+      objectReference: {fileID: 0}
+    - target: {fileID: 8855434715677272936, guid: 1bc9e4f49c67a6a41af3e7cb3d30bb43,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8855434715677272939, guid: 1bc9e4f49c67a6a41af3e7cb3d30bb43,
         type: 3}
@@ -1204,6 +1233,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: VFX_HitSparks
+      objectReference: {fileID: 0}
+    - target: {fileID: 6523915449405344066, guid: 7593818fba43c7f4c8372299ce5e893f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8492437560918690266, guid: 7593818fba43c7f4c8372299ce5e893f,
         type: 3}
@@ -1335,6 +1369,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: VFX_AngrySteamTurret
       objectReference: {fileID: 0}
+    - target: {fileID: 4134168188543666222, guid: 80a1c11596afc5b4e99fcd0cc136f3ed,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 6902821650146442548, guid: 80a1c11596afc5b4e99fcd0cc136f3ed,
         type: 3}
       propertyPath: m_Materials.Array.size
@@ -1410,9 +1449,53 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2015434656898269656}
     m_Modifications:
+    - target: {fileID: 100000, guid: fad35a70731ab804c975c717ee8862a5, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: fad35a70731ab804c975c717ee8862a5, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: fad35a70731ab804c975c717ee8862a5, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: fad35a70731ab804c975c717ee8862a5, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: fad35a70731ab804c975c717ee8862a5, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: fad35a70731ab804c975c717ee8862a5, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 100012, guid: fad35a70731ab804c975c717ee8862a5, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 100014, guid: fad35a70731ab804c975c717ee8862a5, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 100016, guid: fad35a70731ab804c975c717ee8862a5, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 100018, guid: fad35a70731ab804c975c717ee8862a5, type: 3}
       propertyPath: m_Name
       value: TurretRobot
+      objectReference: {fileID: 0}
+    - target: {fileID: 100018, guid: fad35a70731ab804c975c717ee8862a5, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 100020, guid: fad35a70731ab804c975c717ee8862a5, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: fad35a70731ab804c975c717ee8862a5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1484,6 +1567,12 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: d57ebae9f701b57448648b380d0beb65, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fad35a70731ab804c975c717ee8862a5, type: 3}
+--- !u!4 &7886326314632062831 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400018, guid: fad35a70731ab804c975c717ee8862a5,
+    type: 3}
+  m_PrefabInstance: {fileID: 7886326314631937533}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7886326314632062847 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: fad35a70731ab804c975c717ee8862a5,
@@ -1508,12 +1597,6 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 7886326314631937533}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &7886326314632062831 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400018, guid: fad35a70731ab804c975c717ee8862a5,
-    type: 3}
-  m_PrefabInstance: {fileID: 7886326314631937533}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8484798774588107665
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1530,6 +1613,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: VFX_HitSparks (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6523915449405344066, guid: 7593818fba43c7f4c8372299ce5e893f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8492437560918690266, guid: 7593818fba43c7f4c8372299ce5e893f,
         type: 3}

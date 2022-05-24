@@ -105,8 +105,15 @@ namespace Unity.FPS.AI
             switch (AiState)
             {
                 case AIState.Patrol:
-                    m_EnemyController.UpdatePathDestination();
-                    m_EnemyController.SetNavDestination(m_EnemyController.GetDestinationOnPath());
+                    try
+                    {
+                        m_EnemyController.UpdatePathDestination();
+                        m_EnemyController.SetNavDestination(m_EnemyController.GetDestinationOnPath());
+                    }
+                    catch (System.Exception)
+                    {
+                        throw;
+                    }
                     break;
                 case AIState.Follow:
                     m_EnemyController.SetNavDestination(m_EnemyController.KnownDetectedTarget.transform.position);

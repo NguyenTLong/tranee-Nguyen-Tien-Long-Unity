@@ -55,6 +55,13 @@ namespace Unity.FPS.Gameplay
         [Header("Debug")] [Tooltip("Color of the projectile radius debug view")]
         public Color RadiusColor = Color.cyan * 0.2f;
 
+        [Header("Bouncing buttlet")]
+        public bool isBouncing;
+
+        public int bouncingTime;
+
+        private int bouncingCount;
+
         ProjectileBase m_ProjectileBase;
         Vector3 m_LastRootPosition;
         Vector3 m_Velocity;
@@ -73,8 +80,9 @@ namespace Unity.FPS.Gameplay
                 gameObject);
 
             m_ProjectileBase.OnShoot += OnShoot;
+            bouncingCount = bouncingTime;
 
-            Destroy(gameObject, MaxLifeTime);
+        Destroy(gameObject, MaxLifeTime);
         }
 
         new void OnShoot()
@@ -222,42 +230,49 @@ namespace Unity.FPS.Gameplay
 
         void OnHit(Vector3 point, Vector3 normal, Collider collider)
         {
-            // damage
-            if (AreaOfDamage)
+            if (bouncingCount > 0 && isBouncing)
             {
-                // area damage
-                AreaOfDamage.InflictDamageInArea(Damage, point, HittableLayers, k_TriggerInteraction,
-                    m_ProjectileBase.Owner);
+                bouncingCount--;
             }
             else
             {
-                // point damage
-                Damageable damageable = collider.GetComponent<Damageable>();
-                if (damageable)
+                // damage
+                if (AreaOfDamage)
                 {
-                    damageable.InflictDamage(Damage, false, m_ProjectileBase.Owner);
+                    // area damage
+                    AreaOfDamage.InflictDamageInArea(Damage, point, HittableLayers, k_TriggerInteraction,
+                        m_ProjectileBase.Owner);
                 }
-            }
-
-            // impact vfx
-            if (ImpactVfx)
-            {
-                GameObject impactVfxInstance = Instantiate(ImpactVfx, point + (normal * ImpactVfxSpawnOffset),
-                    Quaternion.LookRotation(normal));
-                if (ImpactVfxLifetime > 0)
+                else
                 {
-                    Destroy(impactVfxInstance.gameObject, ImpactVfxLifetime);
+                    // point damage
+                    Damageable damageable = collider.GetComponent<Damageable>();
+                    if (damageable)
+                    {
+                        damageable.InflictDamage(Damage, false, m_ProjectileBase.Owner);
+                    }
                 }
-            }
 
-            // impact sfx
-            if (ImpactSfxClip)
-            {
-                AudioUtility.CreateSFX(ImpactSfxClip, point, AudioUtility.AudioGroups.Impact, 1f, 3f);
-            }
+                // impact vfx
+                if (ImpactVfx)
+                {
+                    GameObject impactVfxInstance = Instantiate(ImpactVfx, point + (normal * ImpactVfxSpawnOffset),
+                        Quaternion.LookRotation(normal));
+                    if (ImpactVfxLifetime > 0)
+                    {
+                        Destroy(impactVfxInstance.gameObject, ImpactVfxLifetime);
+                    }
+                }
 
-            // Self Destruct
-            Destroy(this.gameObject);
+                // impact sfx
+                if (ImpactSfxClip)
+                {
+                    AudioUtility.CreateSFX(ImpactSfxClip, point, AudioUtility.AudioGroups.Impact, 1f, 3f);
+                }
+
+                // Self Destruct
+                Destroy(this.gameObject);
+            }
         }
 
         void OnDrawGizmosSelected()
